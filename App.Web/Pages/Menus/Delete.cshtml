@@ -1,0 +1,103 @@
+﻿@page
+@model App.Web.Pages.Menus.DeleteModel
+
+@{
+    ViewData["Page-Title"] = "MySite-Menu Maintenance";
+    ViewData["Content-Title"] = "Delete Menu";
+}
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Description)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Description)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.ClaimType)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.ClaimType)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.ClaimValue)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.ClaimValue)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Target)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Target)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Icon)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Icon)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Url)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Url)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Parent)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Parent.AddBy)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Sequence)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Sequence)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.ModBy)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.ModBy)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.ModDate)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.ModDate)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.Disabled)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.Disabled)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.AddBy)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.AddBy)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Menu.AddDate)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Menu.AddDate)
+    </dd>
+</dl>
+
+@section Button {
+<form method="post">
+    <input type="hidden" asp-for="Menu.Id" />
+    @if (@Model.IsAjaxRequest)
+    {
+        <input type="button" value="Cancel" onclick="Site.CloseModal(); return false;" class="btn btn-default" />
+    }
+    else
+    {
+        <a asp-page="./Index">Back to List</a>
+    }
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+</form>
+}

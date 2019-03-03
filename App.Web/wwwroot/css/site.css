@@ -1,0 +1,4 @@
+.sidebar-menu.disabled > li a {
+    pointer-events: none;
+    cursor: default;
+}

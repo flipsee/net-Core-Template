@@ -1,0 +1,74 @@
+﻿@using App.Web.ViewModel;
+@{
+    List<BreadcrumbVM> breadcrumbs = (List<BreadcrumbVM>)ViewData["Breadcrumbs"];
+    Layout = null;
+    bool isAjaxRequest = ViewContext.HttpContext.Request.IsAjaxRequest();
+
+    if (!isAjaxRequest)
+    {
+        Layout = "_Layout";
+    }
+}
+
+@if (isAjaxRequest)
+{
+    @RenderSection("Styles", required: false)
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" aria-label="Close" type="button" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="modal-title" id="myModalLabel">@ViewData["Content-Title"]</h5>
+        </div>
+        <div class="modal-body">
+            @RenderBody()
+        </div>
+        <div class="modal-footer">
+            @RenderSection("Button", required: false)
+        </div>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(InitPage);
+    </script>
+}
+else
+{
+    @section Styles {
+        @RenderSection("Styles", required: false)
+    }
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>@ViewData["Content-Title"]</h1>
+
+            @if (breadcrumbs != null && breadcrumbs.Count > 0)
+            {
+                <ol class="breadcrumb">
+                    @foreach (BreadcrumbVM item in breadcrumbs)
+                    {
+                        <li><a href="@item.Url"><i class="@item.Icon"></i>@item.Description</a></li>
+                    }
+                </ol>
+            }
+        </section>
+        <section class="content">
+            <section class="content-body">
+                @RenderBody()
+            </section>
+
+            <section class="content-footer">
+                @RenderSection("Button", required: false)
+            </section>
+        </section>
+    </div>
+
+    @section Scripts {
+        @RenderSection("Scripts", required: false)
+        <script>
+            $(document).ready(InitPage);
+        </script>
+    }
+}

@@ -1,0 +1,53 @@
+{
+  "Menu": [
+    {
+      "className": "header",
+      "link": null,
+      "icon": null,
+      "text": "LABELS",
+      "badges": null,
+      "subMenu": null        
+    },
+    {
+      "className": null,
+      "link": "pages/calendar.html",
+      "icon": "fa fa-calendar",
+      "text": "Calendar",
+      "badges": [
+        {
+          "className": "label pull-right bg-red",
+          "text": "3"
+        },
+        {"className": "label pull-right bg-red",
+          "text": "17"
+        }
+      ],
+      "subMenu": null        
+    },
+    {
+      "className": "treeview",
+      "link": null,
+      "icon": "fa fa-dashboard",
+      "text": "Tables",
+      "badges": null,
+      "subMenu": [
+        {
+          "className": null,
+          "link": "pages/tables/simple.html",
+          "icon": "fa fa-circle-o",
+          "text": "Simple tables",
+          "badges": null,
+          "subMenu": null        
+        },
+        {
+          "className": null,
+          "link": "pages/tables/simple.html",
+          "icon": "fa fa-circle-o",
+          "text": "Data tables",
+          "badges": null,
+          "subMenu": null        
+        }
+      ]        
+    }    
+  ]
+}          

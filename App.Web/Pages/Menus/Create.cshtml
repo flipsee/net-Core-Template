@@ -1,0 +1,63 @@
+﻿@page
+@model App.Web.Pages.Menus.CreateModel
+
+@{
+    ViewData["Page-Title"] = "MySite-Menu Maintenance";
+    ViewData["Content-Title"] = "Create Menu";
+}
+
+<form method="post" id="myForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Menu.ParentId" class="control-label"></label>
+        <select asp-for="Menu.ParentId" class="form-control" asp-items="ViewBag.ParentId"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.Description" class="control-label"></label>
+        <input asp-for="Menu.Description" class="form-control" />
+        <span asp-validation-for="Menu.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.ClaimType" class="control-label"></label>
+        <input asp-for="Menu.ClaimType" class="form-control" />
+        <span asp-validation-for="Menu.ClaimType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.ClaimValue" class="control-label"></label>
+        <input asp-for="Menu.ClaimValue" class="form-control" />
+        <span asp-validation-for="Menu.ClaimValue" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.Target" class="control-label"></label>
+        <input asp-for="Menu.Target" class="form-control" />
+        <span asp-validation-for="Menu.Target" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.Icon" class="control-label"></label>
+        <input asp-for="Menu.Icon" class="form-control" />
+        <span asp-validation-for="Menu.Icon" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.Url" class="control-label"></label>
+        <input asp-for="Menu.Url" class="form-control" />
+        <span asp-validation-for="Menu.Url" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Menu.Sequence" class="control-label"></label>
+        <input asp-for="Menu.Sequence" class="form-control" />
+        <span asp-validation-for="Menu.Sequence" class="text-danger"></span>
+    </div> 
+</form>
+
+@section Button {
+    @if (@Model.IsAjaxRequest)
+    {
+        <input type="button" value="Cancel" onclick="Site.CloseModal(); return false;" class="btn btn-default" />
+    }
+    else
+    {
+        <input asp-page="Index" type="button" value="Cancel" class="btn btn-default" />
+    }
+
+    <input form="myForm" type="submit" value="Create" class="btn btn-default" />
+} 

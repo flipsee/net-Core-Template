@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+   <html>
+    <!--
+      Based on the index.lite.html
+      - for some of the component that is only used to shown data, replaced using Vuejs component:
+        - nav-menu.js for the side menu
+      - some of the static DOM that doesn't need dynamic rendering can be moved to the partial _.cshtml:
+        - _headerPartial.cshtml
+        - _footerPartial.cshtml
+     -->
+    <head>
+        <base href="@Url.Content("~/")">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="#" />
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>MySite - @ViewData["Page-Title"]</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/css/skins/skin-blue.min.css">
+        <link rel="stylesheet" href="./css/site.css">
+    
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        @RenderSection("Styles", required: false)
+    </head>
+
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper" id="app">
+            <partial name="_ModalPartial" />
+            <partial name="_HeaderPartial" />
+
+            <!-- Left side column. contains the logo and sidebar, sidebar: style can be found in sidebar.less -->
+            <aside class="main-sidebar">
+                <section class="sidebar">
+                    <nav-menu :menus="navMenu"></nav-menu>
+                </section>
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            @RenderBody()
+            <!-- /.content-wrapper -->
+
+            <partial name="_FooterPartial" />
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/js/adminlte.min.js"></script> -->
+        <script src="./components/nav-menu.js"></script>
+        <script src="./js/site.js" asp-append-version="true"></script>
+        <script src="./js/adminlte.lite.js" asp-append-version="true" ></script>
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

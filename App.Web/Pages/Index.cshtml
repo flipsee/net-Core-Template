@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Page-Title"] = "MySite Landing Page";
+    ViewData["Content-Title"] = "Index Content";
+}
+
+<div>
+    This is the Index page content
+</div>
+
+@section Button {
+    <button class="btn btn-primary" v-on:click="bindmenu">Load menu</button>
+
+    <button class="btn btn-primary" data-toggle="push-menu">Toggle Sidebar</button>
+
+    <button class="btn btn-primary" onclick="return toogleMenu();">Toogle menu</button>
+
+    <button class="btn btn-primary modal-popup" href='~/About'>Open About as Popup</button>
+    <a href="~/About" class='modal-popup'>About</a> 
+}
+
+@section Scripts {
+    <script>
+        function temp() {
+            alert("ok button clicked");
+            Site.CloseModal();
+        }
+
+        function toogleMenu() {
+            //$(".sidebar-menu").toggleClass("disabled");
+            Site.ShowError("Error", "you have some error", temp);
+            return false;
+        }
+    </script>
+}

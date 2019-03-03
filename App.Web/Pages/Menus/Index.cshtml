@@ -1,0 +1,80 @@
+﻿@page
+@model App.Web.Pages.Menus.IndexModel
+
+@{
+    ViewData["Page-Title"] = "MySite-Menu Maintenance";
+    ViewData["Content-Title"] = "Menu Maintenance";
+}
+
+@section Button { 
+    <button class="btn btn-primary modal-popup" asp-page="Create">Create New</button>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ClaimType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ClaimValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Target)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Disabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Menu)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Target)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Icon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disabled)
+                </td>
+                <td>
+
+                    <a href="~/Menus/Create" class='modal-popup'>Create</a>
+                    <a asp-page="./Edit" class='modal-popup' asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" class='modal-popup' asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" class='modal-popup' asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

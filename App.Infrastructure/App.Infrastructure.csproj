@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20190209165502_init01.cs" />
+    <Compile Remove="Migrations\20190209165502_init01.Designer.cs" />
+    <Compile Remove="Migrations\20190209170438_init01.cs" />
+    <Compile Remove="Migrations\20190209170438_init01.Designer.cs" />
+    <Compile Remove="Migrations\AppDb\20190209171147_init01.cs" />
+  </ItemGroup>
+</Project>
