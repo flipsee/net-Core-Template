@@ -21,6 +21,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Pages\Components\" />
+    <Folder Include="Pages\Components\NavMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Pages\Menus\Index2.cshtml">

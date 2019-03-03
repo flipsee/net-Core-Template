@@ -8,5 +8,7 @@ namespace App.Web.ViewModel
     {
         [Key]
         public int Id { get; set; } 
+
+
     }
 }
